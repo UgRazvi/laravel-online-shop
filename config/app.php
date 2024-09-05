@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use Intervention\Image\ImageServiceProvider;
 
 return [
 
@@ -156,6 +157,7 @@ return [
 
     'providers' => [
 
+
         /*
          * Laravel Framework Service Providers...
          */
@@ -182,6 +184,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
+
         /*
          * Package Service Providers...
          */
@@ -194,6 +198,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        // Intervention\Image\ImageServiceProvider::class, // Usman Added
+
 
     ],
 
@@ -210,6 +217,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        // 'Image' => Intervention\Image\Facades\Image::class, // Usman Added
     ])->toArray(),
 
 ];

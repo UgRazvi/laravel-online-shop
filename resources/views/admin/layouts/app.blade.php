@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('admin-assets/plugins/fontawesome-free/css/all.min.css ') }} ">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin-assets/css/adminlte.min.css ') }} ">
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.css ') }} ">
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/dropzone/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/summernote/summernote.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-assets/css/custom.css ') }} ">
 </head>
 
@@ -56,7 +59,7 @@
                             <i class="fas fa-lock mr-2"></i> Change Password
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item text-danger">
+                        <a href="{{ route('admin.logout') }}" class="dropdown-item text-danger">
                             <i class="fas fa-sign-out-alt mr-2"></i> Logout
                         </a>
                     </div>
@@ -87,15 +90,25 @@
     <script src="{{ asset('admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js ') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin-assets/js/adminlte.min.js ') }}"></script>
+    <script src="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.js ') }}"></script>
     <!-- AdminLTE for demo purposes -->
+    <script src="{{ asset('admin-assets/plugins/summernote/summernote.min.js') }}"></script>
+    <script src="{{ asset('admin-assets/plugins/dropzone/dropzone.js') }}"></script>
     <script src="{{ asset('admin-assets/js/demo.js') }}"></script>
 
     <script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        // usman Added Code - To Call Summernote() function wherever .Summernote Class is presents to change it's Default Height.
+        $(document).ready(function() {
+            $(".summernote").summernote({
+                height: 200
+            });
+        });
+        // usman Added Code 
     </script>
 
     @yield('customJs')
